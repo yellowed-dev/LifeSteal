@@ -1,0 +1,5 @@
+name: LifeSteal
+version: '${project.version}'
+main: dev.yellowed.lifesteal.LifeSteal
+api-version: '1.20'
+
