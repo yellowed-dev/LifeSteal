@@ -2,4 +2,9 @@ name: LifeSteal
 version: '${project.version}'
 main: dev.yellowed.lifesteal.LifeSteal
 api-version: '1.20'
+commands:
+  setlife:
+    description: Set the number of lives for a player.
+    usage: /<command> <player> <lives>
+    permission: lifesteal.setlife
 

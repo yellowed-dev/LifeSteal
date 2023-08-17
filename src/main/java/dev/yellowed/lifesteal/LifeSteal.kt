@@ -1,5 +1,6 @@
 package dev.yellowed.lifesteal
 
+import SetlifeCommand
 import dev.yellowed.lifesteal.listener.ConnectionListener
 import dev.yellowed.lifesteal.listener.DeathListener
 import org.bukkit.Bukkit
@@ -14,9 +15,12 @@ class LifeSteal : JavaPlugin() {
     override fun onEnable() {
         instance = this
         logger.info("LifeSteal starting...")
-
         saveDefaultConfig()
+
         Bukkit.getPluginManager().registerEvents(ConnectionListener(), this)
         Bukkit.getPluginManager().registerEvents(DeathListener(), this)
+
+        getCommand("setlife")!!.setExecutor(SetlifeCommand())
+
     }
 }

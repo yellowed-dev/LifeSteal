@@ -1,0 +1,2 @@
+ban-duration: 1 # Minutes
+default-lives: 2 # Player will be ban when he has 0 life and dies

@@ -1,6 +1,8 @@
 package dev.yellowed.lifesteal.listener
 
 import com.destroystokyo.paper.profile.PlayerProfile
+import dev.yellowed.lifesteal.LifeSteal
+import dev.yellowed.lifesteal.manager.ConfigManager
 import dev.yellowed.lifesteal.manager.UserManager
 import org.apache.maven.model.Profile
 import org.bukkit.BanList
@@ -26,8 +28,13 @@ class DeathListener : Listener {
         playerData.lives -= 1
 
         if (playerData.lives < 0) {
-            player.banPlayer("No more lives!", Calendar.getInstance().apply { add(Calendar.MINUTE, 1) }.time)
-            playerData.lives = 3
+            playerData.lives = ConfigManager.defaultLives
+
+            Bukkit.getScheduler().runTaskLater(LifeSteal.instance, Runnable {
+                player.banPlayer("No more lives!", Calendar.getInstance().apply { add(Calendar.MINUTE, ConfigManager.banDuration) }.time)
+            }, 1)
+
+
         }
 
         UserManager.editPlayer(playerData)
