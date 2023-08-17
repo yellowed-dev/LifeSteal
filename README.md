@@ -4,7 +4,7 @@ LifeSteal is a life-count system influenced by DonutSMP. Players take lives from
 # Config
 As of now, there are 2 customizable options in config:
 ```yml
-ban-duration: 1 # Ban lenght (in minutes)
+ban-duration: 1 # Ban length (in minutes)
 default-lives: 2 # Default lives on first join/after ban
 ```
 Note that the player will be ban when he dies with 0 lives in bank, not when the count reaches 0.
